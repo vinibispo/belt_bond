@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get "login", to: "login#new", as: :login
   post "login", to: "login#create"
 
+  get "verify-email", to: "login#verify_email", as: :verify_email
+
   # Defines the root path route ("/")
   # root "posts#index"
 end
