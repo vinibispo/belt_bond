@@ -10,7 +10,7 @@ class AuthMailerTest < ActionMailer::TestCase
     assert_equal "Login", mail.subject
     assert_equal ["johndoe@beltbond.com"], mail.to
     assert_equal ["hi@beltbond.com"], mail.from
-    assert_match "example.com", mail.body
+    assert_match "example.com", mail.body.encoded
   end
 
 end
