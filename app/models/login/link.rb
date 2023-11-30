@@ -1,6 +1,6 @@
 module Login::Link
   class << self
-    def create(email)
+    def create!(email)
       auth_code = AuthCode.create!
       url = Rails.application.routes.url_helpers.verify_email_url(
         email:,
@@ -23,10 +23,11 @@ module Login::Link
 
       auth_code = AuthCode
                   .lock
-                  .where("expires_at > datetime('now')")
-                  .find_by(code_digest: code_digest)
+                  .find_by(code_digest:)
 
       return unless auth_code
+
+      return if auth_code.expired?
 
       matched = ActiveSupport::SecurityUtils.secure_compare(auth_code.code, params['code'])
 
