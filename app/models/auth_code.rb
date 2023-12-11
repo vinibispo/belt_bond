@@ -7,4 +7,8 @@ class AuthCode < ApplicationRecord
     self.code ||= Faker::Internet.username(specifier: 8..12, separators: ['-']) + SecureRandom.hex(4)
     self.expires_at ||= Time.now + 5.minutes
   end
+
+  def expired?
+  Time.now.to_i > expires_at.to_i
+  end
 end
