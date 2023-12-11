@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_22_225029) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_25_183519) do
   create_table "auth_codes", force: :cascade do |t|
     t.binary "encrypted_code", null: false
     t.text "code_digest", null: false
@@ -27,7 +27,9 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_22_225029) do
     t.bigint "keyring_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "username", null: false
     t.index ["email_digest"], name: "index_users_on_email_digest", unique: true
+    t.index ["username"], name: "index_users_on_username", unique: true
   end
 
 end
