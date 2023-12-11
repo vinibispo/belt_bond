@@ -5,7 +5,7 @@ class Login::LinkTest < ActiveSupport::TestCase
     @email = "johndoe@beltbond.com"
   end
   test "creates a valid login url" do
-    login_url = Login::Link.create(
+    login_url = Login::Link.create!(
       @email
     )
 
@@ -13,7 +13,7 @@ class Login::LinkTest < ActiveSupport::TestCase
   end
 
   test "rejects invalid urls" do
-    login_url = Login::Link.create(
+    login_url = Login::Link.create!(
       @email
     )
 
@@ -23,7 +23,7 @@ class Login::LinkTest < ActiveSupport::TestCase
   end
 
   test "rejects code already used" do
-    login_url = Login::Link.create(
+    login_url = Login::Link.create!(
       @email
     )
 
@@ -33,7 +33,7 @@ class Login::LinkTest < ActiveSupport::TestCase
   end
 
   test "rejects tempered urls" do
-    login_url = Login::Link.create(
+    login_url = Login::Link.create!(
       @email
     )
     login_url.gsub!(/email=([^&]+)/, "email=tempered")
