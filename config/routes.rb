@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   get "verify-email", to: "login#verify_email", as: :verify_email
 
+  get "check-inbox", to: "login#check_inbox", as: :check_inbox
+
   # Defines the root path route ("/")
   # root "posts#index"
 end
