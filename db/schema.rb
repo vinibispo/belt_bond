@@ -12,11 +12,13 @@
 
 ActiveRecord::Schema[7.1].define(version: 2023_11_22_225029) do
   create_table "auth_codes", force: :cascade do |t|
-    t.text "code", null: false
+    t.binary "encrypted_code", null: false
+    t.text "code_digest", null: false
+    t.bigint "keyring_id", null: false
     t.datetime "expires_at", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["code"], name: "index_auth_codes_on_code", unique: true
+    t.index ["code_digest"], name: "index_auth_codes_on_code_digest", unique: true
   end
 
   create_table "users", force: :cascade do |t|
