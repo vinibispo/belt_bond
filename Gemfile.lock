@@ -103,6 +103,8 @@ GEM
     drb (2.2.0)
       ruby2_keywords
     erubi (1.12.0)
+    faker (3.2.2)
+      i18n (>= 1.8.11, < 2)
     globalid (1.2.1)
       activesupport (>= 6.1)
     i18n (1.14.1)
@@ -223,6 +225,7 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    url_signature (0.0.2)
     web-console (4.2.1)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -245,6 +248,7 @@ DEPENDENCIES
   bootsnap
   capybara
   debug
+  faker
   importmap-rails
   jbuilder
   puma (>= 5.0)
@@ -256,6 +260,7 @@ DEPENDENCIES
   stimulus-rails
   turbo-rails
   tzinfo-data
+  url_signature
   web-console
 
 RUBY VERSION
