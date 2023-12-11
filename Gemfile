@@ -35,6 +35,8 @@ gem "faker"
 
 gem "url_signature"
 
+gem "simple_auth"
+
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
